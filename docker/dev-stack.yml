@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  jd_scripts:
+    image: gcdd1993/curtinlv-script-docker:0.0.1
+    container_name: curtinlv_scripts
+    restart: unless-stopped
+    tty: true
+    extra_hosts:
+      - "gitee.com:180.97.125.228"
+      - "github.com:13.229.188.59"
+      - "raw.githubusercontent.com:151.101.228.133"
+    environment:
+      - JD_COOKIE=

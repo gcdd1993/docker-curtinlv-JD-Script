@@ -20,7 +20,7 @@ RUN git clone https://gitee.com/qq1398371419/left2 /scripts \
         && pip3 install requests \
         && crontab docker/crontab_list.sh
 
-COPY docker-entrypoint.sh /usr/local/bin
+COPY docker/docker-entrypoint.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 WORKDIR /scripts

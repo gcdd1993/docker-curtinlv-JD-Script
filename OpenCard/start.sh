@@ -11,7 +11,6 @@
 scriptPath='jd_OpenCard.py'
 ################### ↓↓↓【以下需要配置的参数，代替配置文件OpenCardConfig.ini】↓↓↓ ###################
 #京东cookie 格式：pt_key=xxx;pt_pin=xxx; & pt_key=xxx;pt_pin=xxx; (多账号&分隔)
-export JD_COOKIE='你的京东Cookie放这里，单引号保留'
 
 #只入送豆数量大于此值
 export openCardBean=5
