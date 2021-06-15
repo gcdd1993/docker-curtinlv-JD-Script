@@ -2,7 +2,8 @@ FROM python:alpine3.13
 
 LABEL name=JD-Script \
     author=gcdd1993 \
-    upstream=curtinlv
+    upstream=curtinlv \
+    version=0.0.1
 
 ENV TZ Asia/Shanghai
 RUN set -ex \
