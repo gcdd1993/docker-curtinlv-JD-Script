@@ -43,53 +43,6 @@ _printTime(){
   echo "[`date +"%F %T"`]: $1"
 }
 
-##################↓↓↓↓↓↓ 获取v4-bot用户cookie↓↓↓↓↓↓ ###################################
-# 随机 cookie
-randomCookie(){
-    echo $(sed 's/\s/\n/g' <<<$@ | shuf)
-}
-getCookie(){
-    local NUM
-    [[ ${OpenCardRandomCK} == "true" ]] && NUM=($(randomCookie $@)) || NUM=$@
-    local jdCookie
-    local tmpCookie
-    if ! echo "${NUM[@]}" | sed 's/\s//g' | grep -q '^[[:digit:]]*$' ; then
-        _printTime "错误！ OpenCardUserList 只能输入数字\n$(echo "${NUM[@]}" | sed 's/\s//')"
-        exit 1
-    fi
-    for i in ${NUM[@]}; do
-        tmpCookie=$(eval echo '$Cookie'$i)
-        [[ ${tmpCookie} == "" ]] && _printTime "Cookie$i 为空,跳过不执行！" && break
-        # 如果 pt_pin 开始的需要调转为 pt_key 开头
-        grep -q '^pt_pin.*' <<<${tmpCookie} && tmpCookie=$(fixCookie ${tmpCookie})
-        [[ ${jdCookie} == "" ]] && jdCookie="${tmpCookie}" || jdCookie="${jdCookie} & ${tmpCookie}"
-    done
-    echo "${jdCookie}"
-}
-
-# 获取指定账号的 Cookie
-getCookieNum(){
-    echo $(eval echo '$Cookie'$1)
-}
-fixCookie(){
-    local cookieElement=($(sed 's/;/ /g' <<<$1))
-    echo "${cookieElement[1]};${cookieElement[0]};"
-    _printTime ""
-}
-
-if [ -f "$JD_DIR/config/config.sh" ];then
-    source $JD_DIR/config/config.sh
-    # 支持参数传入 start-v4.sh 1 就是玩第一个账号
-    if [[ $# -eq 0 ]]; then
-        export JD_COOKIE=$(getCookie ${OpenCardUserList[@]})
-    elif [[ $# -eq 1 ]]; then
-        export JD_COOKIE=$(getCookieNum $1)
-    else
-        _printTime "参数错误脚本退出!"
-        exit 1
-    fi
-fi
-##################↑↑↑↑↑ 获取v4-bot用户cookie↑↑↑↑↑ ####################################################
 ##############################3
 logfile=${BASH_SOURCE%/*}/run_jd_getFollowGift.log
 
