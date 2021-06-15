@@ -13,7 +13,6 @@ curpwd=`pwd`
 scriptPath="${curpwd}/jd_getFollowGift.py"
 ################### ↓↓↓【以下需要配置的参数，代替配置文件OpenCradConfig.ini】↓↓↓ ###################
 #京东cookie 格式：pt_key=xxx;pt_pin=xxx; & pt_key=xxx;pt_pin=xxx; (多账号&分隔)
-export JD_COOKIE=''
 
 ############【通知参数】############
 ####### TG 机器人 #######
