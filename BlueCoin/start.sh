@@ -44,7 +44,7 @@ _printTime(){
 }
 
 ##############################3
-logfile=${BASH_SOURCE%/*}/run_jd_getFollowGift.log
+logfile=${BASH_SOURCE%/*}/run_jd_blueCoin.log
 
 
 PID=`ps -ef | grep "python3 ${scriptPath}" | grep -v grep| awk '{print $2}'`
@@ -52,7 +52,7 @@ if [ ! -z $PID ];then
         _printTime "已在后台运行 PID：$PID 如需要终止执行命令：kill $PID"
         _printTime "查看运行日志: tail -f ${logfile}"
 else
-        _printTime "开始执行关注有礼领豆...."
+        _printTime "开始执行东东超市商品兑换...."
         echo "" >${logfile} #清空日志
         nohup python3 ${scriptPath} >> ${logfile} 2>&1 &
         sleep 5
