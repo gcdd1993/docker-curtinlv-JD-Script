@@ -11,8 +11,6 @@ updateTime: 2021.6.26 20:09
 '''
 
 #####
-#ck 优先读取ENV的 变量 JD_COOKIE='ck1&ck2'  再到 【JDCookies.txt】 文件内的ck 最后才到脚本内 cookies=ck
-cookies=os.environ["JD_COOKIE"]
 #助力账号，如给账号1 2 10助力，则填 zlzh = [1,2,10] ,支持ENV export zlzh=[1,2,10]
 zlzh = [1, ]
 #####
@@ -28,6 +26,9 @@ requests.packages.urllib3.disable_warnings()
 pwd = os.path.dirname(os.path.abspath(__file__)) + os.sep
 t = time.time()
 aNum = 0
+
+#ck 优先读取ENV的 变量 JD_COOKIE='ck1&ck2'  再到 【JDCookies.txt】 文件内的ck 最后才到脚本内 cookies=ck
+cookies=os.environ["JD_COOKIE"]
 
 class getJDCookie(object):
     # 适配各种平台环境ck

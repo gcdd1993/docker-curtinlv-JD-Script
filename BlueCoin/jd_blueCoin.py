@@ -17,8 +17,6 @@ Date: 2021/4/17 上午11:22
 * 增加多线程并发
 '''
 ################【参数】######################
-#您的ck格式：pt_key=xxx;pt_pin=xxx; (多账号&分隔)
-cookies=os.environ["JD_COOKIE"]
 #【填写您要兑换的商品】
 coinToBeans='京豆包'
 #轮次
@@ -47,6 +45,8 @@ title=''
 prizeId=''
 blueCost=''
 inStock=''
+#您的ck格式：pt_key=xxx;pt_pin=xxx; (多账号&分隔)
+cookies=os.environ["JD_COOKIE"]
 
 today = datetime.datetime.now().strftime('%Y-%m-%d')
 tomorrow=(datetime.datetime.now() + datetime.timedelta(days=1)).strftime('%Y-%m-%d')
