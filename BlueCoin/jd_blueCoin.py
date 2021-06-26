@@ -18,7 +18,7 @@ Date: 2021/4/17 上午11:22
 '''
 ################【参数】######################
 #您的ck格式：pt_key=xxx;pt_pin=xxx; (多账号&分隔)
-cookies=''
+cookies=os.environ["JD_COOKIE"]
 #【填写您要兑换的商品】
 coinToBeans='京豆包'
 #轮次
