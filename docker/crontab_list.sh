@@ -10,3 +10,5 @@
 0 8 * * * sh /scripts/zjd/start.sh
 # 全民抢京豆（7.2-7.15）
 0 9 * * * sh /scripts/qjd/start.sh
+# 全民抢京豆（7.2-7.15）
+0 9 * * * python /scripts/jd_cashHelp.py
