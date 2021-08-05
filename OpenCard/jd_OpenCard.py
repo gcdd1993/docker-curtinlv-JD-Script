@@ -6,6 +6,8 @@ Author: Curtin
 功能：JD入会开卡领取京豆
 CreateDate: 2021/5/4 下午1:47
 UpdateTime: 2021/6/19
+建议cron: 2 8,15 * * *  python3 jd_OpenCard.py
+new Env('开卡有礼');
 '''
 version = 'v1.2.2'
 readmes = """
@@ -444,7 +446,10 @@ def telegram_bot(title, content):
             return
         print("tg服务启动")
         if TG_API_HOST:
-            url = f"{TG_API_HOST}/bot{TG_BOT_TOKEN}/sendMessage"
+            if 'http' in TG_API_HOST:
+                url = f"{TG_API_HOST}/bot{TG_BOT_TOKEN}/sendMessage"
+            else:
+                url = f"https://{TG_API_HOST}/bot{TG_BOT_TOKEN}/sendMessage"
         else:
             url = f"https://api.telegram.org/bot{TG_BOT_TOKEN}/sendMessage"
 
