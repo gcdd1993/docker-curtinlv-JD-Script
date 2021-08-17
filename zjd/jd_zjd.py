@@ -15,7 +15,7 @@ exit(0)
 #ck 优先读取【JDCookies.txt】 文件内的ck  再到 ENV的 变量 JD_COOKIE='ck1&ck2' 最后才到脚本内 cookies=ck
 cookies=''
 #助力账号，填写pt_pin或用户名的值，如 zlzh = ['aaaa','xxxx','yyyy'] ,支持ENV export zlzh=['CurtinLV','xxxx','yyyy']
-zlzh = ['Curtinlv', '买买买', '东哥']
+zlzh = ['jd_FwAiafmomyDn','jd_5e5b892ddb75e','jd_426f58510cab6','jd_vEbxtcHrYstL','jd_KWhQIuTtixQJ']
 #####
 
 
